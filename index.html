@@ -3,73 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PS LINK SYSTEM</title>
+  <title>PS2 LINK MATRIX</title>
 
   <style>
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: radial-gradient(circle at center, #1a1a1a 0%, #000 80%);
-      color: #fff;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: radial-gradient(circle at center, #0a0f2a 0%, #000 70%);
+      color: #cfd8ff;
       text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* 背景のゆらぎ光 */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(80,120,255,0.15) 0%, transparent 60%);
+      animation: drift 20s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes drift {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
     .container {
-      padding: 60px 20px;
+      padding: 80px 20px;
       max-width: 500px;
       margin: auto;
     }
 
     h1 {
-      font-size: 24px;
-      margin-bottom: 50px;
-      letter-spacing: 3px;
-      font-weight: bold;
-    }
-
-    /* PSカラーライン */
-    .color-bar {
-      height: 4px;
-      width: 100%;
-      margin-bottom: 40px;
-      background: linear-gradient(
-        to right,
-        #ff0000 25%,
-        #00ff00 25% 50%,
-        #0000ff 50% 75%,
-        #ffff00 75%
-      );
+      font-size: 26px;
+      letter-spacing: 4px;
+      margin-bottom: 60px;
+      color: #8fa8ff;
+      text-shadow: 0 0 10px rgba(120,160,255,0.6);
     }
 
     .link-button {
       display: block;
-      margin: 20px 0;
+      margin: 22px 0;
       padding: 18px;
-      background: #111;
-      border: 2px solid #444;
-      border-radius: 8px;
+      background: rgba(20,30,70,0.6);
+      border: 1px solid rgba(120,160,255,0.4);
+      border-radius: 6px;
       text-decoration: none;
-      color: #fff;
+      color: #e0e6ff;
       font-size: 16px;
-      transition: 0.3s;
+      transition: 0.3s ease;
+      backdrop-filter: blur(4px);
     }
 
     .link-button:hover {
-      border-color: #fff;
-      background: #222;
-      transform: scale(1.03);
+      background: rgba(60,90,200,0.5);
+      border-color: #8fa8ff;
+      box-shadow: 0 0 15px rgba(120,160,255,0.7);
+      transform: translateY(-3px);
     }
 
     footer {
-      margin-top: 60px;
+      margin-top: 70px;
       font-size: 12px;
-      color: #777;
+      color: #6d7acb;
+      letter-spacing: 2px;
     }
 
     /* スマホ最適化 */
     @media (max-width: 480px) {
       h1 {
-        font-size: 18px;
+        font-size: 20px;
         letter-spacing: 2px;
       }
 
@@ -85,8 +94,7 @@
 
   <div class="container">
 
-    <h1>PLAY LINK SYSTEM</h1>
-    <div class="color-bar"></div>
+    <h1>LINK MATRIX</h1>
 
     <a class="link-button" href="https://xsion-service.com/crinum" target="_blank">
       ▶ X'sion
@@ -101,7 +109,7 @@
     </a>
 
     <footer>
-      SYSTEM READY.
+      BROWSER MODE INITIALIZED
     </footer>
 
   </div>
