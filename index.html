@@ -2,57 +2,82 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>趣味のページ</title>
+  <title>廃街リンク集</title>
+
+  <!-- レトロ感あるフォント -->
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #1e1e2f, #2c2c54);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      font-family: 'DotGothic16', monospace;
+      background: radial-gradient(circle at center, #2b2b2b 0%, #111 70%);
+      color: #ddd;
+      text-align: center;
+      letter-spacing: 1px;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 40px;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      text-align: center;
-      width: 400px;
+    .container {
+      padding: 80px 20px;
+      max-width: 500px;
+      margin: auto;
     }
 
     h1 {
-      margin-bottom: 20px;
+      margin-bottom: 50px;
+      font-size: 28px;
+      color: #ff4d6d;
+      text-shadow: 0 0 8px #ff4d6d;
     }
 
-    a {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      background: #ff7675;
-      color: white;
+    .link-button {
+      display: block;
+      margin: 20px 0;
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #444;
+      border-radius: 8px;
       text-decoration: none;
-      border-radius: 25px;
-      transition: 0.3s;
+      color: #aaa;
+      font-size: 18px;
+      transition: 0.4s;
+      box-shadow: 0 0 5px #000 inset;
     }
 
-    a:hover {
-      background: #d63031;
+    .link-button:hover {
+      background: #ff4d6d;
+      color: #111;
+      box-shadow: 0 0 15px #ff4d6d;
+      transform: translateY(-3px);
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 12px;
+      color: #666;
     }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <h1>趣味のページ</h1>
-    <p>ようこそ。</p>
+  <div class="container">
+    <h1>廃街リンク集</h1>
 
-    <a href="https://www.youtube.com/" target="_blank">YouTube</a>
-    <a href="https://www.google.com/" target="_blank">Google</a>
+    <a class="link-button" href="https://www.youtube.com/" target="_blank">
+      ▸ YouTube
+    </a>
 
+    <a class="link-button" href="https://www.google.com/" target="_blank">
+      ▸ Google
+    </a>
+
+    <a class="link-button" href="https://github.com/" target="_blank">
+      ▸ GitHub
+    </a>
+
+    <footer>
+      — 静かな夜の片隅 —
+    </footer>
   </div>
 
 </body>
