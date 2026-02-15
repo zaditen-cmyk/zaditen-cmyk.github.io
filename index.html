@@ -1,118 +1,148 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PS2 LINK MATRIX</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PS2 MENU SYSTEM</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: radial-gradient(circle at center, #0a0f2a 0%, #000 70%);
-      color: #cfd8ff;
-      text-align: center;
-      overflow-x: hidden;
-    }
+<style>
+body {
+  margin: 0;
+  background: #000814;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #cfe3ff;
+  overflow-x: hidden;
+}
 
-    /* 背景のゆらぎ光 */
-    body::before {
-      content: "";
-      position: fixed;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(80,120,255,0.15) 0%, transparent 60%);
-      animation: drift 20s linear infinite;
-      z-index: -1;
-    }
+/* 背景グラデーション */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #001d3d 0%, #000 70%);
+  z-index: -3;
+}
 
-    @keyframes drift {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
+/* 回転光 */
+body::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  background: radial-gradient(circle, rgba(80,120,255,0.15) 0%, transparent 60%);
+  animation: rotate 50s linear infinite;
+  z-index: -2;
+}
 
-    .container {
-      padding: 80px 20px;
-      max-width: 500px;
-      margin: auto;
-    }
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
-    h1 {
-      font-size: 26px;
-      letter-spacing: 4px;
-      margin-bottom: 60px;
-      color: #8fa8ff;
-      text-shadow: 0 0 10px rgba(120,160,255,0.6);
-    }
+/* 光柱 */
+.pillar {
+  position: fixed;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to top, rgba(120,170,255,0.8), transparent);
+  animation: floatUp linear infinite;
+  z-index: -1;
+}
 
-    .link-button {
-      display: block;
-      margin: 22px 0;
-      padding: 18px;
-      background: rgba(20,30,70,0.6);
-      border: 1px solid rgba(120,160,255,0.4);
-      border-radius: 6px;
-      text-decoration: none;
-      color: #e0e6ff;
-      font-size: 16px;
-      transition: 0.3s ease;
-      backdrop-filter: blur(4px);
-    }
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 0.9; }
+  to { transform: translateY(-120vh); opacity: 0; }
+}
 
-    .link-button:hover {
-      background: rgba(60,90,200,0.5);
-      border-color: #8fa8ff;
-      box-shadow: 0 0 15px rgba(120,160,255,0.7);
-      transform: translateY(-3px);
-    }
+/* メニュー中央配置 */
+.container {
+  text-align: center;
+  padding-top: 120px;
+  max-width: 500px;
+  margin: auto;
+  animation: fadeIn 2s ease;
+}
 
-    footer {
-      margin-top: 70px;
-      font-size: 12px;
-      color: #6d7acb;
-      letter-spacing: 2px;
-    }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
 
-    /* スマホ最適化 */
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 20px;
-        letter-spacing: 2px;
-      }
+h1 {
+  font-size: 22px;
+  letter-spacing: 5px;
+  margin-bottom: 80px;
+  color: #9fbfff;
+  text-shadow: 0 0 15px rgba(120,170,255,0.8);
+}
 
-      .link-button {
-        font-size: 14px;
-        padding: 16px;
-      }
-    }
+/* メニュー項目 */
+.menu-item {
+  display: block;
+  margin: 30px 0;
+  padding: 18px;
+  background: rgba(10,30,80,0.6);
+  border: 1px solid rgba(120,170,255,0.5);
+  border-radius: 4px;
+  text-decoration: none;
+  color: #e6f0ff;
+  font-size: 16px;
+  transition: 0.3s ease;
+  backdrop-filter: blur(6px);
+}
 
-  </style>
+.menu-item:hover {
+  background: rgba(60,110,255,0.5);
+  border-color: #9fbfff;
+  box-shadow: 0 0 20px rgba(120,170,255,0.9);
+  transform: translateY(-4px);
+}
+
+/* フッター */
+footer {
+  margin-top: 100px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #5f78b8;
+}
+
+/* スマホ */
+@media (max-width: 480px) {
+  h1 { font-size: 18px; letter-spacing: 3px; }
+  .menu-item { font-size: 14px; padding: 16px; }
+}
+</style>
 </head>
+
 <body>
 
-  <div class="container">
+<!-- 光柱 -->
+<div class="pillar" style="left:10%; height:120vh; animation-duration:18s;"></div>
+<div class="pillar" style="left:25%; height:140vh; animation-duration:24s;"></div>
+<div class="pillar" style="left:45%; height:110vh; animation-duration:20s;"></div>
+<div class="pillar" style="left:65%; height:150vh; animation-duration:30s;"></div>
+<div class="pillar" style="left:85%; height:130vh; animation-duration:22s;"></div>
 
-    <h1>LINK MATRIX</h1>
+<div class="container">
 
-    <a class="link-button" href="https://xsion-service.com/crinum" target="_blank">
-      ▶ X'sion
-    </a>
+<h1>BROWSER</h1>
 
-    <a class="link-button" href="webmail.crinum.co.jp" target="_blank">
-      ▶ Webmail
-    </a>
+<a class="menu-item" href="https://xsion-service.com/crinum" target="_blank">
+▶ X'sion
+</a>
 
-    <a class="link-button" href="https://www.fe-siken.com/fekakomon.php" target="_blank">
-      ▶ 過去問道場
-    </a>
+<a class="menu-item" href="webmail.crinum.co.jp" target="_blank">
+▶ Webmail
+</a>
 
-    <footer>
-      BROWSER MODE INITIALIZED
-    </footer>
+<a class="menu-item" href="https://www.fe-siken.com/fekakomon.php" target="_blank">
+▶ 過去問道場
+</a>
 
-  </div>
+<footer>
+MEMORY CARD (8MB)
+</footer>
+
+</div>
 
 </body>
 </html>
