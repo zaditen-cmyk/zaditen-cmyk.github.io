@@ -2,93 +2,108 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>ARCADE LINK</title>
-
-  <!-- ピクセル風フォント -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PS LINK SYSTEM</title>
 
   <style>
     body {
       margin: 0;
-      font-family: 'Press Start 2P', cursive;
-      background: #000;
-      color: #00f7ff;
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at center, #1a1a1a 0%, #000 80%);
+      color: #fff;
       text-align: center;
     }
 
     .container {
-      padding: 80px 20px;
-      max-width: 600px;
+      padding: 60px 20px;
+      max-width: 500px;
       margin: auto;
     }
 
     h1 {
-      font-size: 20px;
-      margin-bottom: 60px;
-      color: #ff00c8;
-      text-shadow:
-        0 0 5px #ff00c8,
-        0 0 15px #ff00c8,
-        0 0 30px #ff00c8;
-      animation: flicker 2s infinite alternate;
+      font-size: 24px;
+      margin-bottom: 50px;
+      letter-spacing: 3px;
+      font-weight: bold;
     }
 
-    @keyframes flicker {
-      from { opacity: 0.8; }
-      to { opacity: 1; }
+    /* PSカラーライン */
+    .color-bar {
+      height: 4px;
+      width: 100%;
+      margin-bottom: 40px;
+      background: linear-gradient(
+        to right,
+        #ff0000 25%,
+        #00ff00 25% 50%,
+        #0000ff 50% 75%,
+        #ffff00 75%
+      );
     }
 
     .link-button {
       display: block;
-      margin: 25px 0;
-      padding: 20px;
-      border: 3px solid #00f7ff;
+      margin: 20px 0;
+      padding: 18px;
+      background: #111;
+      border: 2px solid #444;
+      border-radius: 8px;
       text-decoration: none;
-      color: #00f7ff;
-      font-size: 14px;
+      color: #fff;
+      font-size: 16px;
       transition: 0.3s;
-      box-shadow: 0 0 10px #00f7ff;
     }
 
     .link-button:hover {
-      background: #ff00c8;
-      color: #000;
-      border-color: #ff00c8;
-      box-shadow: 0 0 20px #ff00c8;
-      transform: scale(1.05);
+      border-color: #fff;
+      background: #222;
+      transform: scale(1.03);
     }
 
     footer {
-      margin-top: 80px;
-      font-size: 10px;
-      color: #555;
+      margin-top: 60px;
+      font-size: 12px;
+      color: #777;
     }
+
+    /* スマホ最適化 */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 18px;
+        letter-spacing: 2px;
+      }
+
+      .link-button {
+        font-size: 14px;
+        padding: 16px;
+      }
+    }
+
   </style>
 </head>
 <body>
 
   <div class="container">
-    <h1>◤ LINK ARCADE ◢</h1>
+
+    <h1>PLAY LINK SYSTEM</h1>
+    <div class="color-bar"></div>
 
     <a class="link-button" href="https://xsion-service.com/crinum" target="_blank">
-      ▶ 勤怠管理システム
+      ▶ X'sion
     </a>
 
     <a class="link-button" href="webmail.crinum.co.jp" target="_blank">
-      ▶ ウェブメール
-    </a>
-
-    <a class="link-button" href="https://github.com/" target="_blank">
-      ▶ GITHUB
+      ▶ Webmail
     </a>
 
     <a class="link-button" href="https://www.fe-siken.com/fekakomon.php" target="_blank">
       ▶ 過去問道場
     </a>
-    
+
     <footer>
-      INSERT COIN TO CONTINUE...
+      SYSTEM READY.
     </footer>
+
   </div>
 
 </body>
